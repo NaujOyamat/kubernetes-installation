@@ -18,9 +18,9 @@ sudo mkdir -p /etc/calico
 sudo cp calicoctl.cfg /etc/calico
 
 
-kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.3/manifests/tigera-operator.yaml
 
-curl -O -L https://docs.projectcalico.org/manifests/custom-resources.yaml
+curl -O -L https://raw.githubusercontent.com/projectcalico/calico/v3.26.3/manifests/custom-resources.yaml
 
 apiVersion: operator.tigera.io/v1
 kind: Installation
@@ -48,8 +48,8 @@ calicoctl version
 
 sudo calicoctl node status
 
-calicoctl get ippools default-ipv4-ippool -o yaml
+calicoctl get ippools default-ipv4-ippool -o yaml --allow-version-mismatch
 
-calicoctl ipam show
+calicoctl ipam show --allow-version-mismatch
 
-calicoctl ipam show --show-blocks
+calicoctl ipam show --show-blocks --allow-version-mismatch
