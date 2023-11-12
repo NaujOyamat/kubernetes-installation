@@ -8,7 +8,6 @@ vi kubeadm-config-iptables-mode.yaml
 apiVersion: kubeadm.k8s.io/v1beta3
 kind: InitConfiguration
 nodeRegistration:
-  name: "cri-docker"
   criSocket: "unix:///var/run/cri-dockerd.sock"
 ---
 apiVersion: kubeadm.k8s.io/v1beta3
